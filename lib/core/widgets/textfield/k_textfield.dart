@@ -13,7 +13,7 @@ class KTextfield extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType ?? TextInputType.number,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyMedium,
+      style: Theme.of(context).textTheme.displayMedium,
       decoration: InputDecoration(
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.kPrimary),

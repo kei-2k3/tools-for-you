@@ -48,7 +48,13 @@ class _HomeViewState extends ConsumerState<HomeView> {
           width: context.screenWidth,
           height: context.screenHeight,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Gap(context.screenHeight * 0.1),
+              const Text(
+                'Percentage Calculator',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: context.screenWidth * 0.2, vertical: 20),
@@ -56,11 +62,6 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   spacing: context.screenHeight * 0.01,
                   children: [
-                    const Text(
-                      'Percentage Calculator',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
                     KTextfield(
                       controller: _percentController,
                     ),
