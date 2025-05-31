@@ -31,7 +31,7 @@ class KToggleButton extends ConsumerWidget {
             height: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: AppColor.kPrimary,
+              color: isOn ? AppColor.kPrimary : AppColor.kOpposite,
             ),
             child: Center(
                 child: Text(

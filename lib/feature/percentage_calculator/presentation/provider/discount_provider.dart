@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/feature/home/data/model/discount_result_model.dart';
+import 'package:tools_for_you/feature/percentage_calculator/data/model/discount_result_model.dart';
 
 part 'discount_provider.g.dart';
 
