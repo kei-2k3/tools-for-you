@@ -54,7 +54,6 @@ class _PercentageCalculatorViewState
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Gap(context.screenHeight * 0.1),
-            _buildHeader(),
             _buildCalculatingSession(context),
             _buildResultSession(context, result)
           ],
@@ -101,7 +100,7 @@ class _PercentageCalculatorViewState
                 style: Theme.of(context).textTheme.displayLarge),
             RichText(
               text: TextSpan(
-                text: 'You saved: ',
+                text: youSaved,
                 style: Theme.of(context)
                     .textTheme
                     .displayMedium
@@ -117,10 +116,10 @@ class _PercentageCalculatorViewState
     );
   }
 
-  Text _buildHeader() {
-    return Text(
-      percentageCalculator,
-      style: Theme.of(context).textTheme.displayLarge,
-    );
-  }
+  // Text _buildHeader() {
+  //   return Text(
+  //     percentageCalculator,
+  //     style: Theme.of(context).textTheme.displayLarge,
+  //   );
+  // }
 }

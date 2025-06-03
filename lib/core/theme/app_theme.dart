@@ -4,22 +4,16 @@ import 'package:tools_for_you/core/theme/app_color.dart';
 ThemeData get appTheme {
   return ThemeData(
     scaffoldBackgroundColor: AppColor.kDarkBG,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColor.kDarkBG,
-      selectedIconTheme: IconThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColor.kLessDarkBG,
+      iconTheme: IconThemeData(
         color: AppColor.kPrimary,
       ),
-      selectedLabelStyle: TextStyle(
-        color: AppColor.kOpposite,
-        fontSize: 14,
-      ),
-      unselectedIconTheme: IconThemeData(
-        color: AppColor.kWhite,
-      ),
-      unselectedLabelStyle: TextStyle(
-        color: AppColor.kWhite,
-        fontSize: 14,
-      ),
+      titleTextStyle: TextStyle(
+          color: AppColor.kPrimary, fontSize: 24, fontWeight: FontWeight.w700),
+    ),
+    drawerTheme: DrawerThemeData(
+      backgroundColor: AppColor.kDarkBG,
     ),
     textTheme: TextTheme(
       displayLarge: TextStyle(
