@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
+import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
+import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
 import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
 
@@ -22,8 +25,8 @@ class _HomeViewState extends ConsumerState<HomeView> {
   Widget build(BuildContext context) {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
-    final pages = const [PercentageCalculatorView()];
-    final titles = [percentageCalculator];
+    final pages = const [PercentageCalculatorView(), BmiCalculatorView()];
+    final titles = [percentageCalculator, bmiCalculator];
     final selectedIndex = ref.watch(drawerIndexProvider);
 
     return Scaffold(
@@ -68,6 +71,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
             ),
           ),
+          Gap(context.screenHeight * 0.01),
           for (int i = 0; i < titles.length; i++)
             ListTile(
               title: Text(

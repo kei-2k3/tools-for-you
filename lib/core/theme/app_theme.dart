@@ -26,6 +26,10 @@ ThemeData get appTheme {
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
+      bodyLarge: TextStyle(
+        color: AppColor.kWhite,
+        fontSize: 16,
+      ),
       bodyMedium: TextStyle(
         color: AppColor.kWhite,
         fontSize: 14,

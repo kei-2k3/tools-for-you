@@ -2,19 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 
 class KTextfield extends StatelessWidget {
-  const KTextfield({super.key, this.keyboardType, this.controller});
+  const KTextfield(
+      {super.key,
+      this.keyboardType,
+      this.controller,
+      this.hintText,
+      this.labelText,
+      this.hintTextStyle,
+      this.floatingLabelStyle,
+      this.onChanged});
 
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final String? hintText;
+  final String? labelText;
+  final TextStyle? hintTextStyle;
+  final TextStyle? floatingLabelStyle;
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      onChanged: onChanged,
       keyboardType: keyboardType ?? TextInputType.number,
       textAlign: TextAlign.center,
       style: Theme.of(context).textTheme.displayMedium,
       decoration: InputDecoration(
+        hintText: hintText,
+        labelText: labelText,
+        floatingLabelStyle:
+            floatingLabelStyle ?? TextStyle(color: AppColor.kPrimary),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.kPrimary),
         ),

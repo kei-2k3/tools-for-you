@@ -6,5 +6,6 @@ class AppColor {
   static Color kPrimary = Color(0xff38ce81);
   static Color kOpposite = Color(0xffce3853);
   static Color kWhite = Colors.white;
+  static Color kBlack = Colors.black;
   static Color kTransparent = Colors.transparent;
 }
