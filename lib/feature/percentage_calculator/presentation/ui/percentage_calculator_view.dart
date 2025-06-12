@@ -5,6 +5,7 @@ import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
+import 'package:tools_for_you/core/widgets/toggle_button/provider/toggle_provider.dart';
 import 'package:tools_for_you/core/widgets/toggle_button/toggle_button.dart';
 import 'package:tools_for_you/feature/percentage_calculator/data/model/discount_result_model.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/provider/discount_provider.dart';
@@ -88,6 +89,7 @@ class _PercentageCalculatorViewState
 
   Expanded _buildResultSession(
       BuildContext context, DiscountResultModel result) {
+    final isOn = ref.read(toggleProvider);
     return Expanded(
       child: Container(
         width: context.screenWidth,
@@ -100,13 +102,13 @@ class _PercentageCalculatorViewState
                 style: Theme.of(context).textTheme.displayLarge),
             RichText(
               text: TextSpan(
-                text: youSaved,
+                text: isOn ? extraCost : youSaved,
                 style: Theme.of(context)
                     .textTheme
                     .displayMedium
                     ?.copyWith(color: AppColor.kPrimary),
                 children: [
-                  TextSpan(text: result.savedPrice.toStringAsFixed(2)),
+                  TextSpan(text: result.extraPrice.toStringAsFixed(2)),
                 ],
               ),
             )
