@@ -6,6 +6,7 @@ class KTextfield extends StatelessWidget {
       {super.key,
       this.keyboardType,
       this.controller,
+      this.maxLines,
       this.hintText,
       this.labelText,
       this.hintTextStyle,
@@ -14,6 +15,7 @@ class KTextfield extends StatelessWidget {
 
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final int? maxLines;
   final String? hintText;
   final String? labelText;
   final TextStyle? hintTextStyle;
@@ -26,6 +28,7 @@ class KTextfield extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       keyboardType: keyboardType ?? TextInputType.number,
+      maxLines: maxLines,
       textAlign: TextAlign.center,
       style: Theme.of(context).textTheme.displayMedium,
       decoration: InputDecoration(

@@ -36,3 +36,9 @@ const String thankYou = 'Thank you for using Toolverse!';
 
 /// Contact View
 const String contact = 'Contact';
+const String getInTouch = 'Get in Touch with us';
+const String yourName = 'Your Name';
+const String yourEmail = 'Your Email';
+const String subject = 'Subject';
+const String message = 'Message';
+const String sendMessage = 'Send Message';

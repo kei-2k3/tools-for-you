@@ -15,7 +15,7 @@ class AboutView extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: Text(about),
+        title: const Text(about),
         centerTitle: true,
       ),
       body: SizedBox(

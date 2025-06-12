@@ -4,6 +4,7 @@ import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/feature/about/presentation/ui/about_view.dart';
 import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
+import 'package:tools_for_you/feature/contact/presentation/ui/contact_view.dart';
 import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
 
@@ -118,7 +119,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     Navigator.pop(context);
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AboutView()),
+                      MaterialPageRoute(builder: (context) => ContactView()),
                     );
                   },
                   child: Row(
