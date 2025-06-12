@@ -23,6 +23,11 @@ ThemeData get appTheme {
       ),
       displayMedium: TextStyle(
         color: AppColor.kWhite,
+        fontSize: 24,
+        fontWeight: FontWeight.w500,
+      ),
+      displaySmall: TextStyle(
+        color: AppColor.kWhite,
         fontSize: 18,
         fontWeight: FontWeight.w500,
       ),

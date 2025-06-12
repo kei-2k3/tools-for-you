@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gap/gap.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
+import 'package:tools_for_you/feature/about/presentation/ui/about_view.dart';
 import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
 import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
@@ -52,10 +51,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
           bottomRight: Radius.zero,
         ),
       ),
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
           SizedBox(
+            width: double.infinity,
             height: 70,
             child: DrawerHeader(
               margin: EdgeInsets.zero,
@@ -71,24 +70,73 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
             ),
           ),
-          Gap(context.screenHeight * 0.01),
-          for (int i = 0; i < titles.length; i++)
-            ListTile(
-              title: Text(
-                titles[i],
-                style: selectedIndex == i
-                    ? TextStyle(
-                        fontSize: 18,
-                        color: AppColor.kPrimary,
-                      )
-                    : TextStyle(
-                        fontSize: 18,
-                        color: AppColor.kWhite,
-                      ),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: titles.length,
+              itemBuilder: (context, i) => ListTile(
+                title: Text(
+                  titles[i],
+                  style: selectedIndex == i
+                      ? TextStyle(fontSize: 18, color: AppColor.kPrimary)
+                      : TextStyle(fontSize: 18, color: AppColor.kWhite),
+                ),
+                selected: selectedIndex == i,
+                onTap: () => _onDrawerItemTap(i),
               ),
-              selected: selectedIndex == i,
-              onTap: () => _onDrawerItemTap(i),
             ),
+          ),
+          Divider(color: AppColor.kPrimary),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              spacing: 20,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutView()),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.info_outline,
+                          color: AppColor.kWhite, size: 20),
+                      SizedBox(width: 6),
+                      Text(
+                        about,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutView()),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.mail_outline,
+                          color: AppColor.kWhite, size: 20),
+                      SizedBox(width: 6),
+                      Text(
+                        contact,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
         ],
       ),
     );
