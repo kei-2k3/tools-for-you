@@ -14,6 +14,9 @@ const String chooseYourGender = 'Choose your gender:';
 const String chooseYourAge = 'Choose Your Age';
 const String muted = '...';
 
+/// Unit Convertor
+const String unitConvertor = 'Unit Convertor';
+
 /// About View
 const String about = 'About';
 const String welcomeToToolverse = 'Welcome to Toolverse!';

@@ -6,7 +6,9 @@ import 'package:tools_for_you/feature/about/presentation/ui/about_view.dart';
 import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
 import 'package:tools_for_you/feature/contact/presentation/ui/contact_view.dart';
 import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
+import 'package:tools_for_you/feature/home/presentation/ui/nav_list_tile/nav_list_tile.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
+import 'package:tools_for_you/feature/unit_convertor/presentation/ui/unit_convertor_view.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -25,8 +27,12 @@ class _HomeViewState extends ConsumerState<HomeView> {
   Widget build(BuildContext context) {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
-    final pages = const [PercentageCalculatorView(), BmiCalculatorView()];
-    final titles = [percentageCalculator, bmiCalculator];
+    final pages = const [
+      UnitConvertorView(),
+      PercentageCalculatorView(),
+      BmiCalculatorView()
+    ];
+    final titles = [unitConvertor, percentageCalculator, bmiCalculator];
     final selectedIndex = ref.watch(drawerIndexProvider);
 
     return Scaffold(
@@ -72,21 +78,27 @@ class _HomeViewState extends ConsumerState<HomeView> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              itemCount: titles.length,
-              itemBuilder: (context, i) => ListTile(
-                title: Text(
-                  titles[i],
-                  style: selectedIndex == i
-                      ? TextStyle(fontSize: 18, color: AppColor.kPrimary)
-                      : TextStyle(fontSize: 18, color: AppColor.kWhite),
-                ),
-                selected: selectedIndex == i,
-                onTap: () => _onDrawerItemTap(i),
-              ),
-            ),
-          ),
+              child: Column(
+            children: [
+              NavListTile(
+                  tileNo: 0,
+                  selectedIndex: selectedIndex,
+                  title: unitConvertor,
+                  onTap: () => _onDrawerItemTap(0)),
+              Divider(color: AppColor.kPrimary),
+              NavListTile(
+                  tileNo: 1,
+                  title: percentageCalculator,
+                  selectedIndex: selectedIndex,
+                  onTap: () => _onDrawerItemTap(1)),
+              NavListTile(
+                  tileNo: 2,
+                  selectedIndex: selectedIndex,
+                  title: bmiCalculator,
+                  onTap: () => _onDrawerItemTap(2)),
+              Divider(color: AppColor.kPrimary),
+            ],
+          )),
           Divider(color: AppColor.kPrimary),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
