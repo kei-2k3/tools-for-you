@@ -15,6 +15,9 @@ ThemeData get appTheme {
     drawerTheme: DrawerThemeData(
       backgroundColor: AppColor.kDarkBG,
     ),
+    iconTheme: IconThemeData(
+      color: AppColor.kPrimary,
+    ),
     textTheme: TextTheme(
       displayLarge: TextStyle(
         color: AppColor.kWhite,

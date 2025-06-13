@@ -6,6 +6,7 @@ class KTextfield extends StatelessWidget {
       {super.key,
       this.keyboardType,
       this.controller,
+      this.enabled = true,
       this.maxLines,
       this.hintText,
       this.labelText,
@@ -15,6 +16,7 @@ class KTextfield extends StatelessWidget {
 
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final bool enabled;
   final int? maxLines;
   final String? hintText;
   final String? labelText;
@@ -27,6 +29,7 @@ class KTextfield extends StatelessWidget {
     return TextField(
       controller: controller,
       onChanged: onChanged,
+      enabled: enabled,
       keyboardType: keyboardType ?? TextInputType.number,
       maxLines: maxLines,
       textAlign: TextAlign.center,
@@ -37,6 +40,9 @@ class KTextfield extends StatelessWidget {
         floatingLabelStyle:
             floatingLabelStyle ?? TextStyle(color: AppColor.kPrimary),
         enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColor.kPrimary),
+        ),
+        disabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.kPrimary),
         ),
         focusedBorder: UnderlineInputBorder(

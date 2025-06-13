@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
+import 'package:tools_for_you/feature/unit_convertor/data/model/unit_model.dart';
 
-class CategoryDropdown extends ConsumerWidget {
-  const CategoryDropdown({super.key});
+class UnitDropdown extends ConsumerWidget {
+  const UnitDropdown(
+      {super.key, required this.units, this.value, this.onChanged});
+  final List<LengthUnitModel> units;
+  final LengthUnitModel? value;
+  final ValueChanged<LengthUnitModel>? onChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final List<String> category = [
-      'Length',
-      'Weight',
-      'Time',
-    ];
-
-    String selectedCategory =
-        category.first; // For demo; should use Riverpod state
-
-    return DropdownButtonFormField<String>(
+    return DropdownButtonFormField<LengthUnitModel>(
       isExpanded: true,
-      value: selectedCategory,
+      value: value,
       icon: const Icon(Icons.arrow_drop_down),
       menuMaxHeight: 200,
       decoration: InputDecoration(
@@ -29,32 +25,28 @@ class CategoryDropdown extends ConsumerWidget {
         ),
       ),
       selectedItemBuilder: (context) {
-        return category.map((item) {
+        return units.map((unit) {
           return Center(
             child: Text(
-              item,
+              unit.name,
               style: TextStyle(color: AppColor.kWhite),
             ),
           );
         }).toList();
       },
-      items: category.map((item) {
-        return DropdownMenuItem<String>(
-          value: item,
+      items: units.map((unit) {
+        return DropdownMenuItem(
+          value: unit,
           child: Center(
             child: Text(
-              item,
+              unit.name,
               style: TextStyle(color: AppColor.kBlack),
             ),
           ),
         );
       }).toList(),
-      onChanged: (value) {
-        // Update state here with Riverpod
-        if (value != null) {
-          // Example print
-          print('Selected: $value');
-        }
+      onChanged: (unit) {
+        if (unit != null) onChanged!(unit);
       },
     );
   }
