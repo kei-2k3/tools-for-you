@@ -22,7 +22,7 @@ class CategoryDropdown extends ConsumerWidget {
       icon: const Icon(Icons.arrow_drop_down),
       menuMaxHeight: 200,
       decoration: InputDecoration(
-        //labelText: 'Choose Category',
+        
         floatingLabelStyle: TextStyle(color: AppColor.kPrimary),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.kPrimary),
@@ -50,9 +50,9 @@ class CategoryDropdown extends ConsumerWidget {
         );
       }).toList(),
       onChanged: (value) {
-        // Update state here with Riverpod
+        
         if (value != null) {
-          // Example print
+          
           print('Selected: $value');
         }
       },

@@ -28,13 +28,14 @@ class _HomeViewState extends ConsumerState<HomeView> {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
     final pages = const [
-      UnitConverterView(),
       PercentageCalculatorView(),
-      BmiCalculatorView()
+      BmiCalculatorView(),
+      UnitConverterView(),
     ];
     final titles = [
-      unitConvertor,
-      percentageCalculator, bmiCalculator
+      percentageCalculatorCap,
+      bmiCalculatorCap,
+      unitConverterCap,
     ];
     final selectedIndex = ref.watch(drawerIndexProvider);
 
@@ -62,6 +63,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
         ),
       ),
       child: Column(
+        spacing: 10,
         children: [
           SizedBox(
             width: double.infinity,
@@ -75,7 +77,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                 ),
               ),
               child: Text(
-                tools4u,
+                toolverse,
                 style: Theme.of(context).appBarTheme.titleTextStyle,
               ),
             ),
@@ -83,12 +85,6 @@ class _HomeViewState extends ConsumerState<HomeView> {
           Expanded(
               child: Column(
             children: [
-              // NavListTile(
-              //     tileNo: 0,
-              //     selectedIndex: selectedIndex,
-              //     title: unitConvertor,
-              //     onTap: () => _onDrawerItemTap(0)),
-              // Divider(color: AppColor.kPrimary),
               NavListTile(
                   tileNo: 0,
                   title: percentageCalculator,
@@ -99,6 +95,12 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   selectedIndex: selectedIndex,
                   title: bmiCalculator,
                   onTap: () => _onDrawerItemTap(1)),
+              Divider(color: AppColor.kPrimary),
+              NavListTile(
+                  tileNo: 2,
+                  selectedIndex: selectedIndex,
+                  title: unitConverter,
+                  onTap: () => _onDrawerItemTap(2)),
               Divider(color: AppColor.kPrimary),
             ],
           )),
@@ -123,7 +125,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                           color: AppColor.kWhite, size: 20),
                       SizedBox(width: 6),
                       Text(
-                        about,
+                        aboutCap,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
@@ -143,7 +145,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                           color: AppColor.kWhite, size: 20),
                       SizedBox(width: 6),
                       Text(
-                        contact,
+                        contactCap,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],

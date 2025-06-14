@@ -13,6 +13,7 @@ class AgeDropdown extends ConsumerWidget {
     final notifier = ref.read(bmiCalculatorProvider.notifier);
 
     return DropdownButtonFormField<int>(
+      isExpanded: true,
       value: age,
       menuMaxHeight: 200,
       decoration: InputDecoration(
@@ -28,14 +29,11 @@ class AgeDropdown extends ConsumerWidget {
           (index) => Center(
             child: Text(
               index.toString(),
-              style: TextStyle(
-                color: AppColor.kWhite,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         );
       },
-      isExpanded: true,
       icon: const Icon(Icons.arrow_drop_down),
       onChanged: (val) {
         if (val != null) notifier.setAge(val);
@@ -47,9 +45,10 @@ class AgeDropdown extends ConsumerWidget {
           child: Center(
             child: Text(
               index.toString(),
-              style: TextStyle(
-                color: AppColor.kBlack,
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: AppColor.kBlack),
             ),
           ),
         ),

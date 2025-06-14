@@ -18,9 +18,9 @@ class NavListTile extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: selectedIndex == tileNo
-            ? TextStyle(fontSize: 18, color: AppColor.kPrimary)
-            : TextStyle(fontSize: 18, color: AppColor.kWhite),
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            color:
+                selectedIndex == tileNo ? AppColor.kPrimary : AppColor.kWhite),
       ),
       selected: selectedIndex == tileNo,
       onTap: onTap,

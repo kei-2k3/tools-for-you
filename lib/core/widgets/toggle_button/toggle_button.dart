@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/widgets/toggle_button/provider/toggle_provider.dart';
 
@@ -35,8 +36,8 @@ class KToggleButton extends ConsumerWidget {
             ),
             child: Center(
                 child: Text(
-              isOn ? 'ON' : 'OFF',
-              style: Theme.of(context).textTheme.displayMedium,
+              isOn ? on : off,
+              style: Theme.of(context).textTheme.titleSmall,
             )),
           ),
         ),

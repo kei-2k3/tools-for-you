@@ -26,14 +26,13 @@ class BmiCalculator extends _$BmiCalculator {
   }
 
   String get advice {
-    final val = bmi;
-    if (val == 0) return 'Please enter valid values.';
+    if (bmi == 0) return 'Please enter valid values.';
 
-    if (val < 18.5) {
+    if (bmi < 18.5) {
       return 'You are underweight. Try to eat a balanced diet and consult a healthcare provider.';
-    } else if (val < 24.9) {
+    } else if (bmi < 24.9) {
       return 'You have a normal body weight. Great job!';
-    } else if (val < 29.9) {
+    } else if (bmi < 29.9) {
       return 'You are overweight. Consider regular exercise and a healthy diet.';
     } else {
       return 'You are obese. It is advised to consult a doctor or dietitian for a health plan.';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
+import 'package:tools_for_you/core/utils/extensions/font_height_extension.dart';
 
 class ResponsiveTheme {
   static ThemeData getTheme(BuildContext context) {
@@ -23,7 +24,7 @@ ThemeData get appMobileTheme {
         color: AppColor.kPrimary,
       ),
       titleTextStyle: TextStyle(
-          color: AppColor.kPrimary, fontSize: 24, fontWeight: FontWeight.w700),
+          color: AppColor.kPrimary, fontSize: 18, fontWeight: FontWeight.w700),
     ),
     drawerTheme: DrawerThemeData(
       backgroundColor: AppColor.kDarkBG,
@@ -46,11 +47,13 @@ ThemeData get appMobileTheme {
         color: AppColor.kWhite,
         fontSize: 24,
         fontWeight: FontWeight.w600,
+        height: 24.0.lineHeight,
       ),
       titleLarge: TextStyle(
         color: AppColor.kWhite,
         fontSize: 20,
         fontWeight: FontWeight.w600,
+        height: 20.0.lineHeight,
       ),
       titleMedium: TextStyle(
         color: AppColor.kWhite,
@@ -61,6 +64,7 @@ ThemeData get appMobileTheme {
         color: AppColor.kWhite,
         fontSize: 16,
         fontWeight: FontWeight.w500,
+        height: 16.0.lineHeight,
       ),
       bodyLarge: TextStyle(
         color: AppColor.kWhite,
@@ -72,11 +76,13 @@ ThemeData get appMobileTheme {
         letterSpacing: 0.5,
         fontSize: 14,
         fontWeight: FontWeight.w400,
+        height: 14.0.lineHeight,
       ),
       bodySmall: TextStyle(
         color: AppColor.kWhite,
         fontSize: 12,
         fontWeight: FontWeight.w400,
+        height: 12.0.lineHeight,
       ),
     ),
   );

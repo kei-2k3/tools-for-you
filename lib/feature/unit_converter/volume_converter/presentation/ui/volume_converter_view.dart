@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/unit_format_extension.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
@@ -48,10 +49,10 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
       spacing: 10,
       children: [
         Text(
-          'VOLUME',
+          volume,
           style: Theme.of(context)
               .textTheme
-              .displaySmall
+              .titleMedium
               ?.copyWith(color: AppColor.kPrimary),
         ),
         const Gap(10),
@@ -79,6 +80,7 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
         ),
         const SizedBox(height: 10),
         const Row(
+          spacing: 20,
           children: [
             Expanded(
               child: Icon(
@@ -86,22 +88,26 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
                 size: 24,
               ),
             ),
-            Gap(120),
+            Spacer(),
           ],
         ),
         Row(
           spacing: 20,
           children: [
             Expanded(
-                child: Container(
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: AppColor.kPrimary))),
-              child: Center(
+              child: Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                decoration: BoxDecoration(
+                    border:
+                        Border(bottom: BorderSide(color: AppColor.kPrimary))),
+                child: Center(
                   child: Text(
-                converted.format(from: fromUnit, to: toUnit),
-                style: Theme.of(context).textTheme.titleLarge,
-              )),
-            )),
+                    converted.format(from: fromUnit, to: toUnit),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               child: UnitDropdown(
                 units: units,
@@ -115,7 +121,6 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
             )
           ],
         ),
-        const SizedBox(height: 10),
       ],
     );
   }

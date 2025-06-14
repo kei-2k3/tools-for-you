@@ -111,7 +111,10 @@ class _UnitConverterViewState extends ConsumerState<UnitConverterView> {
                 .titleMedium
                 ?.copyWith(color: AppColor.kPrimary),
           ),
-          Text(selected.guide),
+          Text(
+            selected.guide,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ],
       ),
     );
