@@ -8,7 +8,7 @@ import 'package:tools_for_you/feature/contact/presentation/ui/contact_view.dart'
 import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
 import 'package:tools_for_you/feature/home/presentation/ui/nav_list_tile/nav_list_tile.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
-import 'package:tools_for_you/feature/unit_convertor/presentation/ui/unit_convertor_view.dart';
+import 'package:tools_for_you/feature/unit_converter/presentation/ui/unit_converter_view.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -28,12 +28,12 @@ class _HomeViewState extends ConsumerState<HomeView> {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
     final pages = const [
-      //UnitConvertorView(),
+      UnitConverterView(),
       PercentageCalculatorView(),
       BmiCalculatorView()
     ];
     final titles = [
-      //unitConvertor,
+      unitConvertor,
       percentageCalculator, bmiCalculator
     ];
     final selectedIndex = ref.watch(drawerIndexProvider);

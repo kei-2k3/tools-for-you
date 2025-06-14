@@ -7,7 +7,7 @@ part of 'discount_provider.dart';
 // **************************************************************************
 
 String _$discountCalculatorHash() =>
-    r'4fd7e3c734adccdf589d622e4a19dbfa807fd1c6';
+    r'352dbce1cb0525281039640085ff5adf323fa2e3';
 
 /// See also [DiscountCalculator].
 @ProviderFor(DiscountCalculator)

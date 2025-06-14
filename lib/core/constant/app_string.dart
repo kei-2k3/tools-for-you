@@ -15,7 +15,8 @@ const String chooseYourAge = 'Choose Your Age';
 const String muted = '...';
 
 /// Unit Convertor
-const String unitConvertor = 'Unit Convertor';
+const String unitConvertor = 'UNIT CONVERTER';
+const String guide = 'GUIDE';
 
 /// About View
 const String about = 'About';
