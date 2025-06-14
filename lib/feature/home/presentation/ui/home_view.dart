@@ -32,7 +32,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
       PercentageCalculatorView(),
       BmiCalculatorView()
     ];
-    final titles = [unitConvertor, percentageCalculator, bmiCalculator];
+    final titles = [
+      unitConvertor,
+      percentageCalculator, bmiCalculator
+    ];
     final selectedIndex = ref.watch(drawerIndexProvider);
 
     return Scaffold(
@@ -80,22 +83,22 @@ class _HomeViewState extends ConsumerState<HomeView> {
           Expanded(
               child: Column(
             children: [
+              // NavListTile(
+              //     tileNo: 0,
+              //     selectedIndex: selectedIndex,
+              //     title: unitConvertor,
+              //     onTap: () => _onDrawerItemTap(0)),
+              // Divider(color: AppColor.kPrimary),
               NavListTile(
                   tileNo: 0,
-                  selectedIndex: selectedIndex,
-                  title: unitConvertor,
-                  onTap: () => _onDrawerItemTap(0)),
-              Divider(color: AppColor.kPrimary),
-              NavListTile(
-                  tileNo: 1,
                   title: percentageCalculator,
                   selectedIndex: selectedIndex,
-                  onTap: () => _onDrawerItemTap(1)),
+                  onTap: () => _onDrawerItemTap(0)),
               NavListTile(
-                  tileNo: 2,
+                  tileNo: 1,
                   selectedIndex: selectedIndex,
                   title: bmiCalculator,
-                  onTap: () => _onDrawerItemTap(2)),
+                  onTap: () => _onDrawerItemTap(1)),
               Divider(color: AppColor.kPrimary),
             ],
           )),
