@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/unit_format_extension.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
+import 'package:tools_for_you/feature/unit_converter/area_converter/presentation/provider/area_converter_provider.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/presentation/provider/length_converter_provider.dart';
 import 'package:tools_for_you/feature/unit_converter/presentation/ui/widget/unit_dropdown/provider/unit_dropdown_provider.dart';
 import 'package:tools_for_you/feature/unit_converter/presentation/ui/widget/unit_dropdown/unit_dropdown.dart';
@@ -32,12 +33,12 @@ class _AreaConverterViewState extends ConsumerState<AreaConverterView> {
 
   @override
   Widget build(BuildContext context) {
-    final units = ref.watch(unitsProvider);
+    final units = ref.watch(unitsOfAreaProvider);
 
-    final fromUnit = ref.watch(fromMeterProvider);
-    final toUnit = ref.watch(toMeterProvider);
+    final fromUnit = ref.watch(fromAreaProvider);
+    final toUnit = ref.watch(toAreaProvider);
 
-    final converted = ref.watch(lengthConverterProvider);
+    final converted = ref.watch(areaConverterProvider);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -65,12 +66,12 @@ class _AreaConverterViewState extends ConsumerState<AreaConverterView> {
               controller: _fromUnitController,
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: UnitDropdown(
                 units: units,
                 value: fromUnit,
                 onChanged: (unit) {
-                  ref.read(fromMeterProvider.notifier).set(unit);
+                  ref.read(fromAreaProvider.notifier).set(unit);
                 },
               ),
             )
@@ -102,13 +103,13 @@ class _AreaConverterViewState extends ConsumerState<AreaConverterView> {
               )),
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: UnitDropdown(
                 units: units,
                 value: toUnit,
                 onChanged: (unit) {
                   setState(() {
-                    ref.read(toMeterProvider.notifier).set(unit);
+                    ref.read(toAreaProvider.notifier).set(unit);
                   });
                 },
               ),

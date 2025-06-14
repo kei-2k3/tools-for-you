@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
+import 'package:tools_for_you/feature/unit_converter/area_converter/data/model/area_model.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/data/model/length_model.dart';
 
 part 'unit_dropdown_provider.g.dart';
@@ -16,6 +17,22 @@ class FromMeter extends _$FromMeter {
 class ToMeter extends _$ToMeter {
   @override
   UnitModel build() => lengthUnits[1];
+
+  void set(UnitModel unit) => state = unit;
+}
+
+@riverpod
+class FromArea extends _$FromArea {
+  @override
+  UnitModel build() => areaUnits.first;
+
+  void set(UnitModel unit) => state = unit;
+}
+
+@riverpod
+class ToArea extends _$ToArea {
+  @override
+  UnitModel build() => areaUnits[1];
 
   void set(UnitModel unit) => state = unit;
 }
