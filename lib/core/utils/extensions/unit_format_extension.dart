@@ -1,8 +1,8 @@
-import 'package:tools_for_you/feature/unit_convertor/data/model/unit_model.dart';
+import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
 
 extension UnitFormatter on double {
-  String format({required LengthUnitModel from, required LengthUnitModel to}) {
-    final factor = from.toMeter / to.toMeter;
+  String format({required UnitModel from, required UnitModel to}) {
+    final factor = from.toBase / to.toBase;
 
     if (factor >= 1000) {
       return toStringAsFixed(0);

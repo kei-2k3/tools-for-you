@@ -1,0 +1,21 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
+import 'package:tools_for_you/feature/unit_converter/length_converter/data/model/length_model.dart';
+
+part 'unit_dropdown_provider.g.dart';
+
+@riverpod
+class FromMeter extends _$FromMeter {
+  @override
+  UnitModel build() => lengthUnits.first;
+
+  void set(UnitModel unit) => state = unit;
+}
+
+@riverpod
+class ToMeter extends _$ToMeter {
+  @override
+  UnitModel build() => lengthUnits[1];
+
+  void set(UnitModel unit) => state = unit;
+}
