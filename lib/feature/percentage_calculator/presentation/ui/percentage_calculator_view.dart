@@ -99,13 +99,13 @@ class _PercentageCalculatorViewState
           spacing: context.screenHeight * 0.02,
           children: [
             Text(result.finalPrice.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.displayLarge),
+                style: Theme.of(context).textTheme.titleMedium),
             RichText(
               text: TextSpan(
                 text: isOn ? extraCost : youSaved,
                 style: Theme.of(context)
                     .textTheme
-                    .displayMedium
+                    .bodyLarge
                     ?.copyWith(color: AppColor.kPrimary),
                 children: [
                   TextSpan(text: result.extraPrice.toStringAsFixed(2)),

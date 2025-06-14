@@ -20,7 +20,13 @@ class ContactView extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: const Text(contact),
+        title: Text(
+          contactCap,
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(color: AppColor.kPrimary),
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -31,9 +37,9 @@ class ContactView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             spacing: 10,
             children: [
-              const Text(
+              Text(
                 getInTouch,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const Gap(10),
               const KTextfield(labelText: yourName),

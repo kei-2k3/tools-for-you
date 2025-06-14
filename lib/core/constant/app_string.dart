@@ -1,12 +1,14 @@
 /// Percentage Calculator
+const String percentageCalculatorCap = 'PERCENTAGE CALCULATOR';
 const String percentageCalculator = 'Percentage Calculator';
 const String percentage = '% (Percentage)';
 const String amount = 'Amount (Price)';
 const String youSaved = 'You saved: ';
 const String extraCost = 'Extra cost: ';
-const String tools4u = 'Tools4U';
+const String toolverse = 'Toolverse';
 
 /// BMI Calculator
+const String bmiCalculatorCap = 'BMI CALCULATOR';
 const String bmiCalculator = 'BMI Calculator';
 const String enterYourWeight = 'Enter your weight(kg)';
 const String enterYourHeight = 'Enter your height(cm)';
@@ -15,10 +17,16 @@ const String chooseYourAge = 'Choose Your Age';
 const String muted = '...';
 
 /// Unit Convertor
-const String unitConvertor = 'UNIT CONVERTER';
+const String unitConverterCap = 'UNIT CONVERTER';
+const String unitConverter = 'Unit Converter';
 const String guide = 'GUIDE';
+const String area = 'AREA';
+const String temperature = 'TEMPERATURE';
+const String length = 'LENGTH';
+const String volume = 'VOLUME';
 
 /// About View
+const String aboutCap = 'ABOUT';
 const String about = 'About';
 const String welcomeToToolverse = 'Welcome to Toolverse!';
 const String ourMission = 'Our mission';
@@ -39,6 +47,7 @@ const String lastPara =
 const String thankYou = 'Thank you for using Toolverse!';
 
 /// Contact View
+const String contactCap = 'CONTACT';
 const String contact = 'Contact';
 const String getInTouch = 'Get in Touch with us';
 const String yourName = 'Your Name';
@@ -46,3 +55,7 @@ const String yourEmail = 'Your Email';
 const String subject = 'Subject';
 const String message = 'Message';
 const String sendMessage = 'Send Message';
+
+/// Other
+const String on = 'ON';
+const String off = 'OFF';

@@ -83,7 +83,7 @@ class _BmiCalculatorViewState extends ConsumerState<BmiCalculatorView> {
             if (notifier.isInputComplete) ...[
               Text(
                 'BMI: ${notifier.bmi.toStringAsFixed(2)}kg/m²',
-                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: AppColor.kPrimary, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ),

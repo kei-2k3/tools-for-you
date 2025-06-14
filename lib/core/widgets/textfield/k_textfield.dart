@@ -33,7 +33,7 @@ class KTextfield extends StatelessWidget {
       keyboardType: keyboardType ?? TextInputType.number,
       maxLines: maxLines,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.titleLarge,
+      style: Theme.of(context).textTheme.titleSmall,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,

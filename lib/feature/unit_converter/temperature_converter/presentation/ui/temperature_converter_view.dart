@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
 import 'package:tools_for_you/feature/unit_converter/temperature_converter/presentation/provider/temperature_converter_provider.dart';
@@ -47,10 +48,10 @@ class _TemperatureConverterViewState
       spacing: 10,
       children: [
         Text(
-          'TEMPERATURE',
+          temperature,
           style: Theme.of(context)
               .textTheme
-              .displaySmall
+              .titleMedium
               ?.copyWith(color: AppColor.kPrimary),
         ),
         const Gap(10),
@@ -78,6 +79,7 @@ class _TemperatureConverterViewState
         ),
         const SizedBox(height: 10),
         const Row(
+          spacing: 20,
           children: [
             Expanded(
               child: Icon(
@@ -85,22 +87,26 @@ class _TemperatureConverterViewState
                 size: 24,
               ),
             ),
-            Gap(120),
+            Spacer(),
           ],
         ),
         Row(
           spacing: 20,
           children: [
             Expanded(
-                child: Container(
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: AppColor.kPrimary))),
-              child: Center(
+              child: Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                decoration: BoxDecoration(
+                    border:
+                        Border(bottom: BorderSide(color: AppColor.kPrimary))),
+                child: Center(
                   child: Text(
-                converted.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.titleLarge,
-              )),
-            )),
+                    converted.toStringAsFixed(2),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               child: TemperatureDropdown(
                 units: units,
@@ -114,7 +120,6 @@ class _TemperatureConverterViewState
             )
           ],
         ),
-        const SizedBox(height: 10),
       ],
     );
   }

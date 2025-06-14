@@ -15,7 +15,13 @@ class AboutView extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
-        title: const Text(about),
+        title: Text(
+          aboutCap,
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(color: AppColor.kPrimary),
+        ),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -30,10 +36,10 @@ class AboutView extends StatelessWidget {
               children: [
                 Text(
                   welcomeToToolverse,
-                  style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        color: AppColor.kPrimary,
-                        fontWeight: FontWeight.w700,
-                      ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(color: AppColor.kPrimary),
                 ),
                 const Text(firstPara),
                 RichText(
@@ -52,7 +58,7 @@ class AboutView extends StatelessWidget {
                 const Gap(10),
                 Text(
                   whatWeOffer,
-                  style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: AppColor.kPrimary,
                         fontWeight: FontWeight.w700,
                       ),
