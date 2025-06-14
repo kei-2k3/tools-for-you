@@ -51,6 +51,7 @@ class _UnitConverterViewState extends ConsumerState<UnitConverterView> {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
+        spacing: 20,
         children: [
           CategoryNavRow(
             categories: unitCategories.map((e) => e.name).toList(),
@@ -61,15 +62,21 @@ class _UnitConverterViewState extends ConsumerState<UnitConverterView> {
             },
           ),
           Expanded(
-            child: Center(
-              child: Container(
-                color: AppColor.kLessDarkBG,
-                width: context.screenWidth * 0.8,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: _buildConverterWidget(selected.name),
+            child: Column(
+              children: [
+                Container(
+                  width: context.screenWidth,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: AppColor.kLessDarkBG,
+                  ),
+                  height: 300,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: _buildConverterWidget(selected.name),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

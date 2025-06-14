@@ -23,22 +23,23 @@ final lengthConverterProvider = AutoDisposeProvider<double>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef LengthConverterRef = AutoDisposeProviderRef<double>;
-String _$unitsHash() => r'a45b5f165991a5f17a2838a3dca8f2af24fc5999';
+String _$unitsOfLengthHash() => r'18cbb9d8bf77d2433eaa2ac811f42c554012401a';
 
-/// See also [units].
-@ProviderFor(units)
-final unitsProvider = AutoDisposeProvider<List<UnitModel>>.internal(
-  units,
-  name: r'unitsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$unitsHash,
+/// See also [unitsOfLength].
+@ProviderFor(unitsOfLength)
+final unitsOfLengthProvider = AutoDisposeProvider<List<UnitModel>>.internal(
+  unitsOfLength,
+  name: r'unitsOfLengthProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$unitsOfLengthHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef UnitsRef = AutoDisposeProviderRef<List<UnitModel>>;
+typedef UnitsOfLengthRef = AutoDisposeProviderRef<List<UnitModel>>;
 String _$inputValueHash() => r'668bdacef0ec1e903019d8ac15242b1f88554f0d';
 
 /// See also [InputValue].

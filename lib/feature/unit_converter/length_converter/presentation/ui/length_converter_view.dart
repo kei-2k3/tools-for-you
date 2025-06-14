@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
+import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
 import 'package:tools_for_you/core/utils/extensions/unit_format_extension.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/presentation/provider/length_converter_provider.dart';
@@ -33,7 +34,7 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
 
   @override
   Widget build(BuildContext context) {
-    final units = ref.watch(unitsProvider);
+    final units = ref.watch(unitsOfLengthProvider);
 
     final fromUnit = ref.watch(fromMeterProvider);
     final toUnit = ref.watch(toMeterProvider);
@@ -66,7 +67,7 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
               controller: _fromUnitController,
             )),
             SizedBox(
-              width: 120,
+              width: context.screenWidth * 0.2,
               child: UnitDropdown(
                 units: units,
                 value: fromUnit,
@@ -103,7 +104,7 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
               )),
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: UnitDropdown(
                 units: units,
                 value: toUnit,

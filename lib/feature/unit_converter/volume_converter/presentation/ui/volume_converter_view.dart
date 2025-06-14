@@ -7,6 +7,7 @@ import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/presentation/provider/length_converter_provider.dart';
 import 'package:tools_for_you/feature/unit_converter/presentation/ui/widget/unit_dropdown/provider/unit_dropdown_provider.dart';
 import 'package:tools_for_you/feature/unit_converter/presentation/ui/widget/unit_dropdown/unit_dropdown.dart';
+import 'package:tools_for_you/feature/unit_converter/volume_converter/presentation/provider/volume_converter_provider.dart';
 
 class VolumeConverterView extends ConsumerStatefulWidget {
   const VolumeConverterView({super.key});
@@ -33,12 +34,12 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
 
   @override
   Widget build(BuildContext context) {
-    final units = ref.watch(unitsProvider);
+    final units = ref.watch(unitsOfVolumeProvider);
 
-    final fromUnit = ref.watch(fromMeterProvider);
-    final toUnit = ref.watch(toMeterProvider);
+    final fromUnit = ref.watch(fromVolumeProvider);
+    final toUnit = ref.watch(toVolumeProvider);
 
-    final converted = ref.watch(lengthConverterProvider);
+    final converted = ref.watch(volumeConverterProvider);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -66,12 +67,12 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
               controller: _fromUnitController,
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: UnitDropdown(
                 units: units,
                 value: fromUnit,
                 onChanged: (unit) {
-                  ref.read(fromMeterProvider.notifier).set(unit);
+                  ref.read(fromVolumeProvider.notifier).set(unit);
                 },
               ),
             )
@@ -103,13 +104,13 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
               )),
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: UnitDropdown(
                 units: units,
                 value: toUnit,
                 onChanged: (unit) {
                   setState(() {
-                    ref.read(toMeterProvider.notifier).set(unit);
+                    ref.read(toVolumeProvider.notifier).set(unit);
                   });
                 },
               ),

@@ -65,5 +65,35 @@ final toAreaProvider = AutoDisposeNotifierProvider<ToArea, UnitModel>.internal(
 );
 
 typedef _$ToArea = AutoDisposeNotifier<UnitModel>;
+String _$fromVolumeHash() => r'fbeff51a4c485d423b875b5bb4bf7df47b587de0';
+
+/// See also [FromVolume].
+@ProviderFor(FromVolume)
+final fromVolumeProvider =
+    AutoDisposeNotifierProvider<FromVolume, UnitModel>.internal(
+  FromVolume.new,
+  name: r'fromVolumeProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$fromVolumeHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$FromVolume = AutoDisposeNotifier<UnitModel>;
+String _$toVolumeHash() => r'9b92cc8a66b3e73daff122cb1f8860ed8d8062d6';
+
+/// See also [ToVolume].
+@ProviderFor(ToVolume)
+final toVolumeProvider =
+    AutoDisposeNotifierProvider<ToVolume, UnitModel>.internal(
+  ToVolume.new,
+  name: r'toVolumeProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$toVolumeHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$ToVolume = AutoDisposeNotifier<UnitModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

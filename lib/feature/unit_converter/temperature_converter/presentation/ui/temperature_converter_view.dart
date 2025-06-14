@@ -66,7 +66,7 @@ class _TemperatureConverterViewState
               controller: _fromUnitController,
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: TemperatureDropdown(
                 units: units,
                 value: fromTemp,
@@ -103,7 +103,7 @@ class _TemperatureConverterViewState
               )),
             )),
             SizedBox(
-              width: 120,
+              width: 200,
               child: TemperatureDropdown(
                 units: units,
                 value: toTemp,

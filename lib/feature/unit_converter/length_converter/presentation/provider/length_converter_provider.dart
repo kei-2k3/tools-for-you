@@ -26,4 +26,4 @@ double lengthConverter(Ref ref) {
 }
 
 @riverpod
-List<UnitModel> units(Ref ref) => lengthUnits;
+List<UnitModel> unitsOfLength(Ref ref) => lengthUnits;
