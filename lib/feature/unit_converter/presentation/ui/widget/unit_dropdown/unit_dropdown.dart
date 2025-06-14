@@ -29,7 +29,7 @@ class UnitDropdown extends ConsumerWidget {
           return Center(
             child: Text(
               unit.name,
-              style: TextStyle(color: AppColor.kWhite),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           );
         }).toList();
@@ -40,7 +40,10 @@ class UnitDropdown extends ConsumerWidget {
           child: Center(
             child: Text(
               unit.name,
-              style: TextStyle(color: AppColor.kBlack),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: AppColor.kBlack),
             ),
           ),
         );

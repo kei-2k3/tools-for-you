@@ -26,9 +26,9 @@ class CategoryNavRow extends StatelessWidget {
               selected: isSelected,
               selectedColor: AppColor.kPrimary,
               backgroundColor: AppColor.kWhite,
-              labelStyle: TextStyle(
-                color: isSelected ? AppColor.kWhite : AppColor.kBlack,
-              ),
+              labelStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: isSelected ? AppColor.kWhite : AppColor.kBlack,
+                  ),
               onSelected: (_) => onSelected(category),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),

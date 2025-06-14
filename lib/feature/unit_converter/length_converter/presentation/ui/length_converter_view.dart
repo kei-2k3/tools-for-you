@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
 import 'package:tools_for_you/core/utils/extensions/unit_format_extension.dart';
 import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/presentation/provider/length_converter_provider.dart';
@@ -48,10 +47,10 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
       spacing: 10,
       children: [
         Text(
-          'Length Converter',
+          'LENGTH',
           style: Theme.of(context)
               .textTheme
-              .displayMedium
+              .displaySmall
               ?.copyWith(color: AppColor.kPrimary),
         ),
         const Gap(10),
@@ -66,8 +65,7 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
               },
               controller: _fromUnitController,
             )),
-            SizedBox(
-              width: context.screenWidth * 0.2,
+            Expanded(
               child: UnitDropdown(
                 units: units,
                 value: fromUnit,
@@ -100,11 +98,10 @@ class _LengthConverterViewState extends ConsumerState<LengthConverterView> {
               child: Center(
                   child: Text(
                 converted.format(from: fromUnit, to: toUnit),
-                style: Theme.of(context).textTheme.displayMedium,
+                style: Theme.of(context).textTheme.titleLarge,
               )),
             )),
-            SizedBox(
-              width: 200,
+            Expanded(
               child: UnitDropdown(
                 units: units,
                 value: toUnit,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
 import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
@@ -48,6 +50,7 @@ class _UnitConverterViewState extends ConsumerState<UnitConverterView> {
   Widget build(BuildContext context) {
     final selected = ref.watch(selectedCategoryProvider);
 
+    final isMobile = ResponsiveBreakpoints.of(context).isMobile;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -62,24 +65,69 @@ class _UnitConverterViewState extends ConsumerState<UnitConverterView> {
             },
           ),
           Expanded(
-            child: Column(
-              children: [
-                Container(
-                  width: context.screenWidth,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: AppColor.kLessDarkBG,
+            child: isMobile
+                ? Column(
+                    spacing: 20,
+                    children: [
+                      _buildConverter(context, selected),
+                      _buildGuideBox(context, selected)
+                    ],
+                  )
+                : Row(
+                    spacing: 20,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: _buildConverter(context, selected),
+                      ),
+                      Expanded(
+                        child: _buildGuideBox(context, selected),
+                      )
+                    ],
                   ),
-                  height: 300,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: _buildConverterWidget(selected.name),
-                  ),
-                ),
-              ],
-            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Container _buildGuideBox(BuildContext context, CategoryModel selected) {
+    return Container(
+      width: context.screenWidth,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColor.kLessDarkBG,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 10,
+        children: [
+          Text(
+            guide,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium
+                ?.copyWith(color: AppColor.kPrimary),
+          ),
+          Text(selected.guide),
+        ],
+      ),
+    );
+  }
+
+  Container _buildConverter(BuildContext context, CategoryModel selected) {
+    return Container(
+      width: context.screenWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColor.kLessDarkBG,
+      ),
+      height: 300,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: _buildConverterWidget(selected.name),
       ),
     );
   }

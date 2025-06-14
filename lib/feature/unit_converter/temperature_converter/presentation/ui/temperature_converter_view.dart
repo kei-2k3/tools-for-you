@@ -47,10 +47,10 @@ class _TemperatureConverterViewState
       spacing: 10,
       children: [
         Text(
-          'Temperature Converter',
+          'TEMPERATURE',
           style: Theme.of(context)
               .textTheme
-              .displayMedium
+              .displaySmall
               ?.copyWith(color: AppColor.kPrimary),
         ),
         const Gap(10),
@@ -65,8 +65,7 @@ class _TemperatureConverterViewState
               },
               controller: _fromUnitController,
             )),
-            SizedBox(
-              width: 200,
+            Expanded(
               child: TemperatureDropdown(
                 units: units,
                 value: fromTemp,
@@ -99,11 +98,10 @@ class _TemperatureConverterViewState
               child: Center(
                   child: Text(
                 converted.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.displayMedium,
+                style: Theme.of(context).textTheme.titleLarge,
               )),
             )),
-            SizedBox(
-              width: 200,
+            Expanded(
               child: TemperatureDropdown(
                 units: units,
                 value: toTemp,

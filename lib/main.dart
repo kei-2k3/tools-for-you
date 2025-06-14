@@ -15,7 +15,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: (context, child) => ResponsiveBreakpoints.builder(
-        child: child!,
+        child: Builder(
+          builder: (context) {
+            final theme = ResponsiveTheme.getTheme(context);
+
+            return Theme(
+              data: theme,
+              child: child!,
+            );
+          },
+        ),
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
           const Breakpoint(start: 451, end: 800, name: TABLET),
@@ -25,7 +34,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomeView(),
       debugShowCheckedModeBanner: false,
-      theme: appTheme,
     );
   }
 }

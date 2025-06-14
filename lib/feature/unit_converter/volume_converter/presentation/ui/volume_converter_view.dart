@@ -48,10 +48,10 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
       spacing: 10,
       children: [
         Text(
-          'Volume Converter',
+          'VOLUME',
           style: Theme.of(context)
               .textTheme
-              .displayMedium
+              .displaySmall
               ?.copyWith(color: AppColor.kPrimary),
         ),
         const Gap(10),
@@ -66,8 +66,7 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
               },
               controller: _fromUnitController,
             )),
-            SizedBox(
-              width: 200,
+            Expanded(
               child: UnitDropdown(
                 units: units,
                 value: fromUnit,
@@ -100,11 +99,10 @@ class _VolumeConverterViewState extends ConsumerState<VolumeConverterView> {
               child: Center(
                   child: Text(
                 converted.format(from: fromUnit, to: toUnit),
-                style: Theme.of(context).textTheme.displayMedium,
+                style: Theme.of(context).textTheme.titleLarge,
               )),
             )),
-            SizedBox(
-              width: 200,
+            Expanded(
               child: UnitDropdown(
                 units: units,
                 value: toUnit,
