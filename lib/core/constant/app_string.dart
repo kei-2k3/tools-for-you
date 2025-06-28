@@ -6,6 +6,26 @@ const String amount = 'Amount (Price)';
 const String youSaved = 'You saved: ';
 const String extraCost = 'Extra cost: ';
 const String toolverse = 'Toolverse';
+const String percentageCalculatorGuide = '''
+A percentage calculator is a simple yet powerful tool that helps users calculate discounts, price increases, or changes based on a given percentage. It works by allowing you to enter the original price and a percentage—either to subtract (percentage off) or to add (percentage on). The calculator then shows the final price after the change, how much money you saved if it's a discount, or how much extra you pay if it's an increase. It’s especially useful for shopping, budgeting, comparing sales, or managing price adjustments in business.
+
+How to Use:
+1. Enter the original price – the full price before discount or markup.
+
+2. Enter the percentage – this can be a discount (e.g., 20% off) or an increase (e.g., 15% on).
+
+3. Choose the mode – select whether you want to calculate a percentage off or on.
+
+4. View the result – the tool will display:
+
+Final price
+
+Amount saved (if discounted)
+
+Extra cost (if increased)
+
+This tool helps users save time, avoid manual errors, and make smart buying or selling decisions.
+''';
 
 /// BMI Calculator
 const String bmiCalculatorCap = 'BMI CALCULATOR';

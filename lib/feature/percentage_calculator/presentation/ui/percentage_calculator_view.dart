@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
@@ -47,18 +48,80 @@ class _PercentageCalculatorViewState
   @override
   Widget build(BuildContext context) {
     final result = ref.watch(discountCalculatorProvider);
+    final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+
     return SingleChildScrollView(
-      child: SizedBox(
-        width: context.screenWidth,
-        height: context.screenHeight,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Gap(context.screenHeight * 0.1),
-            _buildCalculatingSession(context),
-            _buildResultSession(context, result)
-          ],
+      scrollDirection: Axis.vertical,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: SizedBox(
+          width: context.screenWidth,
+          child: IntrinsicHeight(
+            child: isMobile
+                ? Column(
+                    spacing: 20,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Gap(context.screenHeight * 0.1),
+                            _buildCalculatingSession(context),
+                            _buildResultSession(context, result)
+                          ],
+                        ),
+                      ),
+                      Expanded(child: _buildGuideBox(context))
+                    ],
+                  )
+                : Row(
+                    spacing: 20,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Gap(context.screenHeight * 0.1),
+                            _buildCalculatingSession(context),
+                            _buildResultSession(context, result)
+                          ],
+                        ),
+                      ),
+                      Expanded(child: _buildGuideBox(context))
+                    ],
+                  ),
+          ),
         ),
+      ),
+    );
+  }
+
+  Container _buildGuideBox(BuildContext context) {
+    return Container(
+      width: context.screenWidth,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColor.kLessDarkBG,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 10,
+        children: [
+          Text(
+            guide,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: AppColor.kPrimary),
+          ),
+          Text(
+            percentageCalculatorGuide,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
       ),
     );
   }
@@ -87,33 +150,38 @@ class _PercentageCalculatorViewState
     );
   }
 
-  Expanded _buildResultSession(
+  Container _buildResultSession(
       BuildContext context, DiscountResultModel result) {
     final isOn = ref.read(toggleProvider);
-    return Expanded(
-      child: Container(
-        width: context.screenWidth,
+    return Container(
+      width: context.screenWidth,
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      decoration: BoxDecoration(
         color: AppColor.kLessDarkBG,
-        padding: const EdgeInsets.only(top: 20),
-        child: Column(
-          spacing: context.screenHeight * 0.02,
-          children: [
-            Text(result.finalPrice.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.titleMedium),
-            RichText(
-              text: TextSpan(
-                text: isOn ? extraCost : youSaved,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: AppColor.kPrimary),
-                children: [
-                  TextSpan(text: result.extraPrice.toStringAsFixed(2)),
-                ],
-              ),
-            )
-          ],
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(8),
+          bottomRight: Radius.circular(8),
         ),
+      ),
+      child: Column(
+        spacing: context.screenHeight * 0.02,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Price: ${result.finalPrice.toStringAsFixed(2)}",
+              style: Theme.of(context).textTheme.titleMedium),
+          RichText(
+            text: TextSpan(
+              text: isOn ? extraCost : youSaved,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: AppColor.kPrimary),
+              children: [
+                TextSpan(text: result.extraPrice.toStringAsFixed(2)),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
