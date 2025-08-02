@@ -21,7 +21,7 @@ class KToggleButton extends ConsumerWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: AppColor.kLessDarkBG,
+          color: AppColor.kDarkBG,
         ),
         child: AnimatedAlign(
           duration: const Duration(milliseconds: 300),

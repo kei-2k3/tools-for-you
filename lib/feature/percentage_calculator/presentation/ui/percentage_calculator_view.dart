@@ -47,73 +47,76 @@ class _PercentageCalculatorViewState
   @override
   Widget build(BuildContext context) {
     final result = ref.watch(discountCalculatorProvider);
-    return SingleChildScrollView(
-      child: SizedBox(
-        width: context.screenWidth,
-        height: context.screenHeight,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Gap(context.screenHeight * 0.1),
-            _buildCalculatingSession(context),
-            _buildResultSession(context, result)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding _buildCalculatingSession(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: context.screenWidth * 0.2, vertical: 20),
+      padding: const EdgeInsets.all(20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        spacing: context.screenHeight * 0.01,
+        spacing: 20,
         children: [
-          KTextfield(
-            controller: _percentController,
-          ),
-          const Text(percentage),
-          Gap(context.screenHeight * 0.02),
-          const KToggleButton(),
-          Gap(context.screenHeight * 0.02),
-          KTextfield(
-            controller: _priceController,
-          ),
-          const Text(amount)
+          _buildCalculatingSession(context),
+          _buildResultSession(context, result)
         ],
       ),
     );
   }
 
-  Expanded _buildResultSession(
-      BuildContext context, DiscountResultModel result) {
-    final isOn = ref.read(toggleProvider);
-    return Expanded(
-      child: Container(
-        width: context.screenWidth,
+  Widget _buildCalculatingSession(BuildContext context) {
+    return Container(
+      width: context.screenWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
         color: AppColor.kLessDarkBG,
-        padding: const EdgeInsets.only(top: 20),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: context.screenWidth * 0.2, vertical: 20),
         child: Column(
-          spacing: context.screenHeight * 0.02,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: context.screenHeight * 0.01,
           children: [
-            Text(result.finalPrice.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.titleMedium),
-            RichText(
-              text: TextSpan(
-                text: isOn ? extraCost : youSaved,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: AppColor.kPrimary),
-                children: [
-                  TextSpan(text: result.extraPrice.toStringAsFixed(2)),
-                ],
-              ),
-            )
+            KTextfield(
+              controller: _percentController,
+            ),
+            const Text(percentage),
+            Gap(context.screenHeight * 0.01),
+            const KToggleButton(),
+            Gap(context.screenHeight * 0.01),
+            KTextfield(
+              controller: _priceController,
+            ),
+            const Text(amount)
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildResultSession(BuildContext context, DiscountResultModel result) {
+    final isOn = ref.read(toggleProvider);
+    return Container(
+      width: context.screenWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColor.kLessDarkBG,
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Column(
+        spacing: context.screenHeight * 0.02,
+        children: [
+          Text(result.finalPrice.toStringAsFixed(2),
+              style: Theme.of(context).textTheme.titleMedium),
+          RichText(
+            text: TextSpan(
+              text: isOn ? extraCost : youSaved,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(color: AppColor.kPrimary),
+              children: [
+                TextSpan(text: result.extraPrice.toStringAsFixed(2)),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
