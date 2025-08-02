@@ -16,6 +16,7 @@ class NavListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      minTileHeight: 50,
       title: Text(
         title,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(

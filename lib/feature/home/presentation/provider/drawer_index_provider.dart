@@ -1,11 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:tools_for_you/core/enums/tool_types.dart';
 
 part 'drawer_index_provider.g.dart';
 
 @riverpod
 class DrawerIndex extends _$DrawerIndex {
   @override
-  int build() => 0;
+  ToolTypes build() => ToolTypes.percentageCalculator;
 
-  void setIndex(int index) => state = index;
+  void setIndex(ToolTypes index) => state = index;
 }

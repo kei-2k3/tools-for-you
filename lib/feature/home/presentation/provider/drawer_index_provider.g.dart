@@ -6,12 +6,12 @@ part of 'drawer_index_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$drawerIndexHash() => r'7a2b067002abb5fc5afc720d60aa2c70135452dc';
+String _$drawerIndexHash() => r'67a5f174d0a1735d5f19dc6da55483b531381888';
 
 /// See also [DrawerIndex].
 @ProviderFor(DrawerIndex)
 final drawerIndexProvider =
-    AutoDisposeNotifierProvider<DrawerIndex, int>.internal(
+    AutoDisposeNotifierProvider<DrawerIndex, ToolTypes>.internal(
   DrawerIndex.new,
   name: r'drawerIndexProvider',
   debugGetCreateSourceHash:
@@ -20,6 +20,6 @@ final drawerIndexProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$DrawerIndex = AutoDisposeNotifier<int>;
+typedef _$DrawerIndex = AutoDisposeNotifier<ToolTypes>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,0 +1,1 @@
+enum ToolCategories { calculation, conversion }

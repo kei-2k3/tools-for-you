@@ -5,7 +5,7 @@ const String percentage = '% (Percentage)';
 const String amount = 'Amount (Price)';
 const String youSaved = 'You saved: ';
 const String extraCost = 'Extra cost: ';
-const String toolverse = 'Toolverse';
+const String toolkithub = 'Tool Kit Hub';
 
 /// BMI Calculator
 const String bmiCalculatorCap = 'BMI CALCULATOR';

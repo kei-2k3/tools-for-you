@@ -6,7 +6,7 @@ part of 'bmi_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$bmiCalculatorHash() => r'cb227b2e9f1aa12e09aa1da1d7b9450664b3e3cd';
+String _$bmiCalculatorHash() => r'd8a713fef9946180045b7bfc583ac12bcda8d665';
 
 /// See also [BmiCalculator].
 @ProviderFor(BmiCalculator)

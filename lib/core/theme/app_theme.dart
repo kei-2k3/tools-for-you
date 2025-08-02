@@ -62,9 +62,9 @@ ThemeData get appMobileTheme {
       ),
       titleSmall: TextStyle(
         color: AppColor.kWhite,
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w500,
-        height: 16.0.lineHeight,
+        //height: 14.0.lineHeight,
       ),
       bodyLarge: TextStyle(
         color: AppColor.kWhite,
@@ -76,13 +76,13 @@ ThemeData get appMobileTheme {
         letterSpacing: 0.5,
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        height: 14.0.lineHeight,
+        //height: 14.0.lineHeight,
       ),
       bodySmall: TextStyle(
         color: AppColor.kWhite,
-        fontSize: 12,
+        fontSize: 9,
         fontWeight: FontWeight.w400,
-        height: 12.0.lineHeight,
+        //height: 9.0.lineHeight,
       ),
     ),
   );
@@ -133,7 +133,7 @@ ThemeData get appWebTheme {
       ),
       titleSmall: TextStyle(
         color: AppColor.kWhite,
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
       bodyLarge: TextStyle(
@@ -144,12 +144,12 @@ ThemeData get appWebTheme {
       bodyMedium: TextStyle(
         color: AppColor.kWhite,
         letterSpacing: 0.5,
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w400,
       ),
       bodySmall: TextStyle(
         color: AppColor.kWhite,
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: FontWeight.w400,
       ),
     ),

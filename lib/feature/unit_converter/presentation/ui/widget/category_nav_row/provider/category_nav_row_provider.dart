@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
+import 'package:tools_for_you/core/utils/shared/unit_model.dart';
 
 part 'category_nav_row_provider.g.dart';
 

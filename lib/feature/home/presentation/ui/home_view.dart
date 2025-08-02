@@ -1,162 +1,146 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/feature/about/presentation/ui/about_view.dart';
-import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
-import 'package:tools_for_you/feature/contact/presentation/ui/contact_view.dart';
-import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
-import 'package:tools_for_you/feature/home/presentation/ui/nav_list_tile/nav_list_tile.dart';
-import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
-import 'package:tools_for_you/feature/unit_converter/presentation/ui/unit_converter_view.dart';
+import 'package:tools_for_you/feature/category/presentation/category_view.dart';
 
-class HomeView extends ConsumerStatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  ConsumerState<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends ConsumerState<HomeView> {
-  void _onDrawerItemTap(int index) {
-    ref.read(drawerIndexProvider.notifier).setIndex(index);
-    Navigator.pop(context);
-  }
 
   @override
   Widget build(BuildContext context) {
     final scaffoldKey = GlobalKey<ScaffoldState>();
-
-    final pages = const [
-      PercentageCalculatorView(),
-      BmiCalculatorView(),
-      UnitConverterView(),
-    ];
-    final titles = [
-      percentageCalculatorCap,
-      bmiCalculatorCap,
-      unitConverterCap,
-    ];
-    final selectedIndex = ref.watch(drawerIndexProvider);
-
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => scaffoldKey.currentState?.openDrawer(),
-          icon: const Icon(Icons.menu),
+    return SafeArea(
+      child: Scaffold(
+        key: scaffoldKey,
+        appBar: AppBar(
+          // leading: IconButton(
+          //   onPressed: () => scaffoldKey.currentState?.openDrawer(),
+          //   icon: const Icon(Icons.menu),
+          // ),
+          title: Text(toolkithub),
+          centerTitle: true,
         ),
-        title: Text(titles[selectedIndex]),
-        centerTitle: true,
+        //drawer: _buildDrawer(titles, selectedIndex),
+        body: CategoryView(),
       ),
-      drawer: _buildDrawer(titles, selectedIndex),
-      body: pages[selectedIndex],
     );
   }
 
-  Drawer _buildDrawer(List<String> titles, int selectedIndex) {
-    return Drawer(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topRight: Radius.zero,
-          bottomRight: Radius.zero,
-        ),
-      ),
-      child: Column(
-        spacing: 10,
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: 70,
-            child: DrawerHeader(
-              margin: EdgeInsets.zero,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: AppColor.kPrimary, width: 1),
-                ),
-              ),
-              child: Text(
-                toolverse,
-                style: Theme.of(context).appBarTheme.titleTextStyle,
-              ),
-            ),
-          ),
-          Expanded(
-              child: Column(
-            children: [
-              NavListTile(
-                  tileNo: 0,
-                  title: percentageCalculator,
-                  selectedIndex: selectedIndex,
-                  onTap: () => _onDrawerItemTap(0)),
-              NavListTile(
-                  tileNo: 1,
-                  selectedIndex: selectedIndex,
-                  title: bmiCalculator,
-                  onTap: () => _onDrawerItemTap(1)),
-              Divider(color: AppColor.kPrimary),
-              NavListTile(
-                  tileNo: 2,
-                  selectedIndex: selectedIndex,
-                  title: unitConverter,
-                  onTap: () => _onDrawerItemTap(2)),
-              Divider(color: AppColor.kPrimary),
-            ],
-          )),
-          Divider(color: AppColor.kPrimary),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              spacing: 20,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AboutView()),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.info_outline,
-                          color: AppColor.kWhite, size: 20),
-                      SizedBox(width: 6),
-                      Text(
-                        aboutCap,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ContactView()),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.mail_outline,
-                          color: AppColor.kWhite, size: 20),
-                      SizedBox(width: 6),
-                      Text(
-                        contactCap,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 12),
-        ],
-      ),
-    );
-  }
+  // Drawer _buildDrawer(List<String> titles, int selectedIndex) {
+  //   return Drawer(
+  //     shape: const RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.only(
+  //         topRight: Radius.zero,
+  //         bottomRight: Radius.zero,
+  //       ),
+  //     ),
+  //     child: Column(
+  //       spacing: 10,
+  //       children: [
+  //         SizedBox(
+  //           width: double.infinity,
+  //           height: 70,
+  //           child: DrawerHeader(
+  //             margin: EdgeInsets.only(bottom: 10),
+  //             padding: const EdgeInsets.all(16),
+  //             decoration: BoxDecoration(
+  //                 // border: Border(
+  //                 //   bottom: BorderSide(color: AppColor.kPrimary, width: 1),
+  //                 // ),
+  //                 ),
+  //             child: Text(
+  //               toolkithub,
+  //               style: Theme.of(context).appBarTheme.titleTextStyle,
+  //             ),
+  //           ),
+  //         ),
+  //         Expanded(
+  //             child: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             _buildCategoryTitle(),
+  //             NavListTile(
+  //                 tileNo: 0,
+  //                 title: percentageCalculator,
+  //                 selectedIndex: selectedIndex,
+  //                 onTap: () => _onDrawerItemTap(0)),
+  //             NavListTile(
+  //                 tileNo: 1,
+  //                 selectedIndex: selectedIndex,
+  //                 title: bmiCalculator,
+  //                 onTap: () => _onDrawerItemTap(1)),
+  //             NavListTile(
+  //                 tileNo: 2,
+  //                 selectedIndex: selectedIndex,
+  //                 title: unitConverter,
+  //                 onTap: () => _onDrawerItemTap(2)),
+  //           ],
+  //         )),
+  //         Divider(color: AppColor.kPrimary),
+  //         Padding(
+  //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+  //           child: Row(
+  //             mainAxisAlignment: MainAxisAlignment.start,
+  //             spacing: 20,
+  //             children: [
+  //               GestureDetector(
+  //                 onTap: () {
+  //                   Navigator.pop(context);
+  //                   Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(builder: (context) => AboutView()),
+  //                   );
+  //                 },
+  //                 child: Row(
+  //                   children: [
+  //                     Icon(Icons.info_outline,
+  //                         color: AppColor.kWhite, size: 20),
+  //                     SizedBox(width: 6),
+  //                     Text(
+  //                       aboutCap,
+  //                       style: Theme.of(context).textTheme.bodyMedium,
+  //                     ),
+  //                   ],
+  //                 ),
+  //               ),
+  //               GestureDetector(
+  //                 onTap: () {
+  //                   Navigator.pop(context);
+  //                   Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(builder: (context) => ContactView()),
+  //                   );
+  //                 },
+  //                 child: Row(
+  //                   children: [
+  //                     Icon(Icons.mail_outline,
+  //                         color: AppColor.kWhite, size: 20),
+  //                     SizedBox(width: 6),
+  //                     Text(
+  //                       contactCap,
+  //                       style: Theme.of(context).textTheme.bodyMedium,
+  //                     ),
+  //                   ],
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //         const SizedBox(height: 12),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  // Widget _buildCategoryTitle() {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(horizontal: 15),
+  //     child: Text(
+  //       'Calculator',
+  //       style: Theme.of(context)
+  //           .textTheme
+  //           .titleSmall
+  //           ?.copyWith(color: AppColor.kPrimary),
+  //     ),
+  //   );
+  // }
 }

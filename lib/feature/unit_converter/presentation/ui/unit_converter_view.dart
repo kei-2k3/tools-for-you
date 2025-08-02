@@ -4,7 +4,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
 import 'package:tools_for_you/core/theme/app_color.dart';
 import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
-import 'package:tools_for_you/core/utils/shared_model/unit_model.dart';
+import 'package:tools_for_you/core/utils/shared/unit_model.dart';
 import 'package:tools_for_you/feature/unit_converter/area_converter/presentation/ui/area_converter_view.dart';
 import 'package:tools_for_you/feature/unit_converter/length_converter/presentation/ui/length_converter_view.dart';
 import 'package:tools_for_you/feature/unit_converter/temperature_converter/presentation/ui/temperature_converter_view.dart';
