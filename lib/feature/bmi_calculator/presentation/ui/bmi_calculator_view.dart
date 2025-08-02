@@ -23,11 +23,10 @@ class _BmiCalculatorViewState extends ConsumerState<BmiCalculatorView> {
     final state = ref.watch(bmiCalculatorProvider);
     final notifier = ref.read(bmiCalculatorProvider.notifier);
 
-    return SizedBox(
-      width: context.screenWidth,
-      height: context.screenHeight,
+    return Padding(
+      padding: const EdgeInsets.all(20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        spacing: 20,
         children: [
           _buildBmiInputSession(context, state, notifier),
           _buildBmiResultSession(context, notifier),
@@ -36,77 +35,83 @@ class _BmiCalculatorViewState extends ConsumerState<BmiCalculatorView> {
     );
   }
 
-  Padding _buildBmiInputSession(
+  Widget _buildBmiInputSession(
       BuildContext context, UserInputModel state, BmiCalculator notifier) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: context.screenWidth * 0.12, vertical: 40),
-      child: Column(
-        spacing: context.screenHeight * 0.02,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          NumberInputField(
-            label: enterYourWeight,
-            value: state.weight,
-            onChanged: notifier.setWeight,
-          ),
-          NumberInputField(
-            label: enterYourHeight,
-            value: state.height,
-            onChanged: notifier.setHeight,
-          ),
-          Text(
-            chooseYourGender,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: AppColor.kPrimary),
-          ),
-          const GenderSelector(),
-          const AgeDropdown(),
-        ],
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: AppColor.kLessDarkBG,
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: context.screenWidth * 0.1, vertical: 40),
+        child: Column(
+          spacing: context.screenHeight * 0.02,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            NumberInputField(
+              label: enterYourWeight,
+              value: state.weight,
+              onChanged: notifier.setWeight,
+            ),
+            NumberInputField(
+              label: enterYourHeight,
+              value: state.height,
+              onChanged: notifier.setHeight,
+            ),
+            Text(
+              chooseYourGender,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: AppColor.kPrimary),
+            ),
+            const GenderSelector(),
+            const AgeDropdown(),
+          ],
+        ),
       ),
     );
   }
 
-  Expanded _buildBmiResultSession(
-      BuildContext context, BmiCalculator notifier) {
-    return Expanded(
-      child: Container(
-        width: double.infinity,
+  Widget _buildBmiResultSession(BuildContext context, BmiCalculator notifier) {
+    return Container(
+      width: context.screenWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
         color: AppColor.kLessDarkBG,
-        padding: EdgeInsets.symmetric(
-            vertical: 20, horizontal: context.screenWidth * 0.12),
-        child: Column(
-          spacing: context.screenHeight * 0.016,
-          children: [
-            if (notifier.isInputComplete) ...[
-              Text(
-                'BMI: ${notifier.bmi.toStringAsFixed(2)}kg/m²',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: AppColor.kPrimary, fontWeight: FontWeight.w500),
+      ),
+      padding: EdgeInsets.symmetric(
+          vertical: 20, horizontal: context.screenWidth * 0.1),
+      child: Column(
+        spacing: 20,
+        children: [
+          if (notifier.isInputComplete) ...[
+            Text(
+              'BMI: ${notifier.bmi.toStringAsFixed(2)}kg/m²',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  color: AppColor.kPrimary, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                notifier.advice,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  notifier.advice,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ] else ...[
-              Text(
-                muted,
-                style: Theme.of(context).textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-            ],
+            ),
+          ] else ...[
+            Text(
+              muted,
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
           ],
-        ),
+        ],
       ),
     );
   }
