@@ -57,6 +57,12 @@ final List<CategoryModel> categories = [
         route: ToolTypes.unitConverter,
         itemNo: 3,
       ),
+      ToolModel(
+        name: 'Currency Converter',
+        iconName: 'coins',
+        route: ToolTypes.currencyConverter,
+        itemNo: 4,
+      ),
       // ToolModel(
       //   name: 'Currency Converter',
       //   iconName: 'money-bill-1-wave',

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tools_for_you/core/enums/tool_types.dart';
 import 'package:tools_for_you/feature/bmi_calculator/presentation/ui/bmi_calculator_view.dart';
+import 'package:tools_for_you/feature/currency_conversion/presentation/currency_converter_view.dart';
 import 'package:tools_for_you/feature/percentage_calculator/presentation/ui/percentage_calculator_view.dart';
 import 'package:tools_for_you/feature/unit_converter/presentation/ui/unit_converter_view.dart';
 
@@ -13,6 +14,8 @@ extension ToolTypesExtension on ToolTypes {
         return 'BMI Calculator';
       case ToolTypes.unitConverter:
         return 'Unit Converter';
+      case ToolTypes.currencyConverter:
+        return 'Currency Converter';
     }
   }
 
@@ -24,6 +27,8 @@ extension ToolTypesExtension on ToolTypes {
         return const BmiCalculatorView();
       case ToolTypes.unitConverter:
         return const UnitConverterView();
+      case ToolTypes.currencyConverter:
+        return const CurrencyConverterView();
     }
   }
 }

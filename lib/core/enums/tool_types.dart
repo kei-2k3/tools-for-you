@@ -1,1 +1,6 @@
-enum ToolTypes { percentageCalculator, bmiCalculator, unitConverter }
+enum ToolTypes {
+  percentageCalculator,
+  bmiCalculator,
+  unitConverter,
+  currencyConverter
+}
