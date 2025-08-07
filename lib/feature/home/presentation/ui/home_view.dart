@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tools_for_you/core/constant/app_string.dart';
-import 'package:tools_for_you/feature/category/presentation/category_view.dart';
+import 'package:tools_for_you/feature/conversion_tools/timezone_converter/presentation/timezone_converter_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -20,7 +20,8 @@ class HomeView extends StatelessWidget {
           centerTitle: true,
         ),
         //drawer: _buildDrawer(titles, selectedIndex),
-        body: CategoryView(),
+        //body: CategoryView(),
+        body: const TimezoneConverterView(),
       ),
     );
   }

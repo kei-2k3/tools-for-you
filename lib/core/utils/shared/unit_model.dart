@@ -1,7 +1,7 @@
-import 'package:tools_for_you/feature/unit_converter/area_converter/data/model/area_model.dart';
-import 'package:tools_for_you/feature/unit_converter/length_converter/data/model/length_model.dart';
-import 'package:tools_for_you/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
-import 'package:tools_for_you/feature/unit_converter/volume_converter/data/model/volume_model.dart';
+import 'package:tools_for_you/feature/conversion_tools/unit_converter/area_converter/data/model/area_model.dart';
+import 'package:tools_for_you/feature/conversion_tools/unit_converter/length_converter/data/model/length_model.dart';
+import 'package:tools_for_you/feature/conversion_tools/unit_converter/temperature_converter/data/model/temperature_model.dart';
+import 'package:tools_for_you/feature/conversion_tools/unit_converter/volume_converter/data/model/volume_model.dart';
 
 class UnitModel {
   final String name;

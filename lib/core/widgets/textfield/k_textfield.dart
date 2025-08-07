@@ -6,15 +6,18 @@ class KTextfield extends StatelessWidget {
       {super.key,
       this.keyboardType,
       this.controller,
+      this.focusNode,
       this.enabled = true,
       this.maxLines,
       this.hintText,
       this.labelText,
       this.hintTextStyle,
       this.floatingLabelStyle,
-      this.onChanged});
+      this.onChanged,
+      this.onSubmitted});
 
   final TextInputType? keyboardType;
+  final FocusNode? focusNode;
   final TextEditingController? controller;
   final bool enabled;
   final int? maxLines;
@@ -23,13 +26,16 @@ class KTextfield extends StatelessWidget {
   final TextStyle? hintTextStyle;
   final TextStyle? floatingLabelStyle;
   final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
       onChanged: onChanged,
+      focusNode: focusNode,
       enabled: enabled,
+      onSubmitted: onSubmitted,
       keyboardType: keyboardType ?? TextInputType.number,
       maxLines: maxLines,
       textAlign: TextAlign.center,

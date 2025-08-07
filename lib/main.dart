@@ -4,9 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:tools_for_you/core/theme/app_theme.dart';
 import 'package:tools_for_you/feature/home/presentation/ui/home_view.dart';
+import 'package:timezone/data/latest_all.dart' as tzdata;
 
 void main() {
   debugPaintSizeEnabled;
+  tzdata.initializeTimeZones();
   runApp(const ProviderScope(child: MyApp()));
 }
 

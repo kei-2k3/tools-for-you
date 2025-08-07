@@ -9,6 +9,8 @@ IconData getFaIcon(String name) {
       return FontAwesomeIcons.weightScale;
     case 'rightLeft':
       return FontAwesomeIcons.rightLeft;
+    case 'clock':
+      return FontAwesomeIcons.clock;
     default:
       return FontAwesomeIcons.question;
   }
