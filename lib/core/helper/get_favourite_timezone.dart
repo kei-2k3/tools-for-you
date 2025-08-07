@@ -25,7 +25,7 @@ class GetFavouriteTimezone {
   static Future<void> removeFavorite(String timezone) async {
     final favorites = await getFavorites();
     favorites.remove(timezone);
-    print('removed: $timezone');  
+    print('removed: $timezone');
     await saveFavorites(favorites);
   }
 
