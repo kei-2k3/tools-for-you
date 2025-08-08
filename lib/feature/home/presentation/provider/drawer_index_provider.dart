@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/core/enums/tool_types.dart';
+import 'package:tool_kit_hub/core/enums/tool_types.dart';
 
 part 'drawer_index_provider.g.dart';
 

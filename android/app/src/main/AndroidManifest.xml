@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="tools_for_you"
+        android:label="tool_kit_hub"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

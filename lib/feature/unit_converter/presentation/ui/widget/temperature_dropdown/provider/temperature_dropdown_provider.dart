@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
+import 'package:tool_kit_hub/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
 
 part 'temperature_dropdown_provider.g.dart';
 

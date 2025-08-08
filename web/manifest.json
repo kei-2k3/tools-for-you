@@ -1,6 +1,6 @@
 {
-    "name": "tools_for_you",
-    "short_name": "tools_for_you",
+    "name": "tool_kit_hub",
+    "short_name": "tool_kit_hub",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/core/widgets/toggle_button/provider/toggle_provider.dart';
-import 'package:tools_for_you/feature/percentage_calculator/data/model/discount_result_model.dart';
+import 'package:tool_kit_hub/core/widgets/toggle_button/provider/toggle_provider.dart';
+import 'package:tool_kit_hub/feature/percentage_calculator/data/model/discount_result_model.dart';
 
 part 'discount_provider.g.dart';
 

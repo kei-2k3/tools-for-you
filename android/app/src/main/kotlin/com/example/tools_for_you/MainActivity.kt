@@ -1,4 +1,4 @@
-package com.example.tools_for_you
+package com.example.tool_kit_hub
 
 import io.flutter.embedding.android.FlutterActivity
 

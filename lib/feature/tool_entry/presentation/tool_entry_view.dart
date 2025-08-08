@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/tool_types_extension.dart';
-import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/core/utils/extensions/tool_types_extension.dart';
+import 'package:tool_kit_hub/feature/home/presentation/provider/drawer_index_provider.dart';
 
 class ToolEntryView extends ConsumerWidget {
   const ToolEntryView({super.key});

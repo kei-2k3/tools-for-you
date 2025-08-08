@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/font_height_extension.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/core/utils/extensions/font_height_extension.dart';
 
 class ResponsiveTheme {
   static ThemeData getTheme(BuildContext context) {

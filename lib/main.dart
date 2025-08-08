@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:tools_for_you/core/theme/app_theme.dart';
-import 'package:tools_for_you/feature/home/presentation/ui/home_view.dart';
+import 'package:tool_kit_hub/core/theme/app_theme.dart';
+import 'package:tool_kit_hub/feature/home/presentation/ui/home_view.dart';
 
 void main() {
   debugPaintSizeEnabled;

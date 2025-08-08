@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:tools_for_you/core/enums/tool_categories.dart';
-import 'package:tools_for_you/core/enums/tool_types.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/feature/category/model/category_model.dart';
-import 'package:tools_for_you/feature/category/presentation/widget/icon_text_card.dart';
-import 'package:tools_for_you/feature/home/presentation/provider/drawer_index_provider.dart';
-import 'package:tools_for_you/feature/tool_entry/presentation/tool_entry_view.dart';
+import 'package:tool_kit_hub/core/enums/tool_categories.dart';
+import 'package:tool_kit_hub/core/enums/tool_types.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/feature/category/model/category_model.dart';
+import 'package:tool_kit_hub/feature/category/presentation/widget/icon_text_card.dart';
+import 'package:tool_kit_hub/feature/home/presentation/provider/drawer_index_provider.dart';
+import 'package:tool_kit_hub/feature/tool_entry/presentation/tool_entry_view.dart';
 
 class CategoryView extends ConsumerStatefulWidget {
   const CategoryView({super.key});

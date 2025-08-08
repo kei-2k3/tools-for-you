@@ -1,5 +1,7 @@
-import 'package:tools_for_you/core/enums/tool_categories.dart';
-import 'package:tools_for_you/core/enums/tool_types.dart';
+
+
+import 'package:tool_kit_hub/core/enums/tool_categories.dart';
+import 'package:tool_kit_hub/core/enums/tool_types.dart';
 
 class ToolModel {
   final String name;

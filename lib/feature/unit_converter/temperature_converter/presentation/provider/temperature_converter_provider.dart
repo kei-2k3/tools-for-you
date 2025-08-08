@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/feature/unit_converter/presentation/ui/widget/temperature_dropdown/provider/temperature_dropdown_provider.dart';
-import 'package:tools_for_you/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
+import 'package:tool_kit_hub/feature/unit_converter/presentation/ui/widget/temperature_dropdown/provider/temperature_dropdown_provider.dart';
+import 'package:tool_kit_hub/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
 
 part 'temperature_converter_provider.g.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:tools_for_you/core/helper/get_fa_icon.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/feature/category/model/category_model.dart';
+import 'package:tool_kit_hub/core/helper/get_fa_icon.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/feature/category/model/category_model.dart';
 
 class IconTextCard extends StatelessWidget {
   const IconTextCard({

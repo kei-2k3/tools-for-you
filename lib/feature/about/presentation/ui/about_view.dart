@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:tools_for_you/core/constant/app_string.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
+import 'package:tool_kit_hub/core/constant/app_string.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/core/utils/extensions/context_extension.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});

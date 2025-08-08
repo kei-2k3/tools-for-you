@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
 
 class CategoryDropdown extends ConsumerWidget {
   const CategoryDropdown({super.key});
@@ -22,7 +22,6 @@ class CategoryDropdown extends ConsumerWidget {
       icon: const Icon(Icons.arrow_drop_down),
       menuMaxHeight: 200,
       decoration: InputDecoration(
-        
         floatingLabelStyle: TextStyle(color: AppColor.kPrimary),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColor.kPrimary),
@@ -50,9 +49,7 @@ class CategoryDropdown extends ConsumerWidget {
         );
       }).toList(),
       onChanged: (value) {
-        
         if (value != null) {
-          
           print('Selected: $value');
         }
       },

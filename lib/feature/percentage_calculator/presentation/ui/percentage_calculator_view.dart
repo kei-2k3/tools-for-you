@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:tools_for_you/core/constant/app_string.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/core/utils/extensions/context_extension.dart';
-import 'package:tools_for_you/core/widgets/textfield/k_textfield.dart';
-import 'package:tools_for_you/core/widgets/toggle_button/provider/toggle_provider.dart';
-import 'package:tools_for_you/core/widgets/toggle_button/toggle_button.dart';
-import 'package:tools_for_you/feature/percentage_calculator/data/model/discount_result_model.dart';
-import 'package:tools_for_you/feature/percentage_calculator/presentation/provider/discount_provider.dart';
+import 'package:tool_kit_hub/core/constant/app_string.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/core/utils/extensions/context_extension.dart';
+import 'package:tool_kit_hub/core/widgets/textfield/k_textfield.dart';
+import 'package:tool_kit_hub/core/widgets/toggle_button/provider/toggle_provider.dart';
+import 'package:tool_kit_hub/core/widgets/toggle_button/toggle_button.dart';
+import 'package:tool_kit_hub/feature/percentage_calculator/data/model/discount_result_model.dart';
+import 'package:tool_kit_hub/feature/percentage_calculator/presentation/provider/discount_provider.dart';
 
 class PercentageCalculatorView extends ConsumerStatefulWidget {
   const PercentageCalculatorView({super.key});

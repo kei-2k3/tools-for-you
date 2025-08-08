@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:tools_for_you/feature/bmi_calculator/data/model/user_input_model.dart';
+import 'package:tool_kit_hub/feature/bmi_calculator/data/model/user_input_model.dart';
 
 part 'bmi_provider.g.dart';
 

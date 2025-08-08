@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tools_for_you/core/theme/app_color.dart';
-import 'package:tools_for_you/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
+import 'package:tool_kit_hub/core/theme/app_color.dart';
+import 'package:tool_kit_hub/feature/unit_converter/temperature_converter/data/model/temperature_model.dart';
 
 class TemperatureDropdown extends ConsumerWidget {
   const TemperatureDropdown(
